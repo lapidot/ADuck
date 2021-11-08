@@ -1,0 +1,448 @@
+points:
+  zones:
+    matrix:
+      #      anchor:
+      #        rotate: 9
+      #P01,P00,P02,P09
+      #P03,P04,[P05],P06,P07,P08,P10,P16,P14,P18,P19,P20
+      #P09,P02,P00,P01
+      #P03,P04,P06,P07,P08,P10,P16,P14,P18,P19
+      columns:
+        pinky:
+          spread: 18
+          rotate: 15
+          origin:
+              - 0
+              - -17
+          key:
+            column_net: P3
+            mirror:
+              column_net: P19
+          rows:
+              top:
+                  bind:
+                      - 0
+                      - 20
+                      - 5
+                      - 0
+              home:
+                  bind:
+                      - 0
+                      - 20
+                      - 5
+                      - 0
+              bottom:
+                  bind:
+                      - 0
+                      - 1 #instead of 80
+                      - 0
+                      - 0
+        ring:
+          spread: 18
+          stagger: 10
+          rotate: -10
+          origin:
+              - 0
+              - -17
+          # hinge at the bottom right corner
+          # of the bottom pinky's 14x14 hole
+          # for historical reasons...
+          #          origin: [-19, -29]
+          #          stagger: 15
+          key:
+            column_net: P4
+            mirror:
+              column_net: P18
+          rows:
+              top:
+                  bind:
+                      - 0
+                      - 20
+                      - 20
+                      - 0
+              bottom:
+                  bind:
+                      - 9
+                      - 1 #instead of 30
+                      - 5
+                      - 0
+        middle:
+          spread: 18
+          stagger: 17/3
+          rotate: -5
+          origin:
+              - 0
+              - -17
+          #          rotate: -5
+          #          origin: [-19, -29]
+          #          stagger: 10
+          key:
+            column_net: P6
+            mirror:
+              column_net: P14
+            shift:
+              - 0.2
+              - 0
+          rows:
+              bottom:
+                  bind:
+                      - 9
+                      - 5 #instead of 30
+                      - 0
+                      - 5
+        index:
+          spread: 18
+          stagger: '-17/3'
+          rotate: -5
+          origin:
+              - 0
+              - -17
+          #          rotate: -5
+          #          origin: [-19, -29]
+          #          stagger: -6
+          key:
+            column_net: P7
+            mirror:
+              column_net: P16
+          rows:
+              top:
+                  bind:
+                      - 0
+                      - 0
+                      - 5
+                      - 20
+              home:
+                  bind:
+                      - 0
+                      - 0
+                      - 5
+                      - 20
+        inner:
+          spread: 18
+          stagger: '-17/6'
+          key:
+            column_net: P8
+            mirror:
+              column_net: P10
+          rows:
+              top:
+                  bind:
+                      - 0
+                      - 0
+                      - 5
+                      - 20
+              home:
+                  bind:
+                      - 0
+                      - 0
+                      - 5
+                      - 20
+              bottom:
+                  bind:
+                      - 10
+                      - 10
+                      - 10
+                      - 10
+      rows:
+        bottom:
+          padding: 17
+          bind:
+            - 5
+            - 0
+            - 0
+            - 0
+          row_net: P0
+        home:
+          padding: 17
+          row_net: P2
+        top:
+          row_net: P9
+    thumbfan:
+      anchor:
+        ref: matrix_inner_bottom
+        shift:
+          - 0
+          - -24
+      columns:
+        near:
+          rotate: -17
+          rows:
+            thumb:
+              column_net: P7
+              mirror:
+                column_net: P16
+              bind:
+                  - 10
+                  - 0
+                  - 0
+                  - 1  #instead of 60
+        home:
+          rows:
+            thumb:
+              column_net: P8
+              mirror:
+                column_net: P10
+              bind:
+                  - 40
+                  - 0
+                  - 0
+                  - 5  #instead of 20
+          spread: 18
+          rotate: -10
+          origin: [-9, -9.5]
+      rows:
+        thumb:
+          only:
+            padding: 17
+          row_net: P1
+      key:
+        footprints:
+          choc_hotswap:
+            type: choc
+            nets:
+              from: '=column_net'
+              to: '=colrow'
+            params:
+              keycaps: true
+              reverse: false
+              hotswap: true
+          choc:
+            type: choc
+            anchor:
+              rotate: 180
+            nets:
+              from: '=column_net'
+              to: '=colrow'
+            params:
+              keycaps: false
+              reverse: false
+              hotswap: false
+          diode:
+            type: diode
+            anchor:
+              rotate: 180
+              shift: [6,9.5]
+            nets:
+              from: '=colrow'
+              to: '=row_net'
+            params:
+              keycaps: true
+              reverse: false
+              #          diode:
+              #            type: diode
+              #            anchor:
+              #              rotate: 90
+              #              shift: [8.25, 0]
+    switch_footprints:
+      $extends: points.zones.matrix
+      key:
+        footprints:
+          choc_hotswap:
+            type: choc
+            nets:
+              from: '=column_net'
+              to: '=colrow'
+            params:
+              keycaps: true
+              reverse: false
+              hotswap: true
+          choc:
+            type: choc
+            anchor:
+              rotate: 180
+            nets:
+              from: '=column_net'
+              to: '=colrow'
+            params:
+              keycaps: false
+              reverse: false
+              hotswap: false
+          diode:
+            type: diode
+            anchor:
+              rotate: 90
+              shift: [9,-5.5]
+            nets:
+              from: '=colrow'
+              to: '=row_net'
+            params:
+              keycaps: true
+              reverse: false
+              #          diode:
+              #            type: diode
+              #            anchor:
+              #              rotate: 90
+              #              shift: [8.25, 0]
+  rotate: -20
+  mirror:
+    ref: matrix_inner_top
+    shift: [7.2, 7.2]
+    distance: 8
+exports:
+    raw:
+      - type: polygon
+        points:
+          - ref: matrix_pinky_bottom
+            shift: [ -10 , -31.5 ]
+          - ref: matrix_pinky_top
+            shift: [ -10, 16 ]
+          - ref: matrix_middle_top
+            shift: [ -9, 14 ]
+          - ref: matrix_inner_top
+            shift: [ 30, 13 ]
+          - ref: matrix_inner_top
+            shift: [ 47.5, -0.5 ]
+          - ref: thumbfan_far_thumb
+            shift: [ 10, 9 ]
+          - ref: thumbfan_far_thumb
+            shift: [ 10, -9 ]
+        operation: stack
+    switch_cutouts:
+      - type: keys
+        side: left
+        size: 14
+        bound: false
+    switch_plate:
+      main:
+        type: outline
+        name: raw
+        fillet: 0.5
+      keyholes:
+        type: outline
+        name: switch_cutouts
+        operation: subtract
+outlines:
+  glue:
+    default:
+      top:
+        left:
+          ref: matrix_inner_top
+          shift: [0.5, 7]
+        right:
+          ref: mirror_matrix_inner_top
+          shift: [0.5, 7]
+      bottom:
+        left:
+          ref: matrix_inner_bottom
+          #thumbfan_home_thumb
+          shift: [0.5, -0.5]
+        right:
+          ref: mirror_matrix_inner_bottom
+          #mirror_thumbfan_home_thumb
+          shift: [0.5, -0.5]
+  exports:
+    _pcb_edge:
+      - operation: add
+        type: keys
+        side: both
+        size: [18, 17] # MX switch dimensions
+        corner: 3
+    mockup:
+      - operation: add
+        type: outline
+        name: _pcb_edge
+      - operation: stack
+        type: keys
+        side: both
+        size: [18, 17] # MX switch dimensions
+        bound: false
+pcbs:
+    A_Duck_NS:
+        outlines:
+            main:
+                outline: _pcb_edge
+        footprints:
+            promicro:
+                type: promicro
+                anchor:
+                    ref: matrix_inner_home
+                    shift:
+                        - 32
+                        - -20
+                    rotate: 115
+                params:
+                    orientation: down
+            jumper:
+                type: jumper
+                anchor:
+                    ref:
+                        - matrix_inner_home
+                    shift:
+                        - 18
+                        - 10.5
+                    rotate: 25
+                nets:
+                    from: GND
+                    to: RST
+                params:
+                    reverse: true
+            oled:
+                type: oled
+                anchor:
+                    ref:
+                        - matrix_inner_bottom
+                    shift:
+                        - 18
+                        - 10.5
+                    rotate: 115
+                nets:
+                    SDA: P1
+                    SCL: P2
+            jumper2:
+                type: jumper
+                anchor:
+                    ref:
+                        - matrix_index_bottom
+                    shift:
+                        - 3
+                        - -15
+                    rotate: 90
+                nets:
+                    from: P6
+                    to: '=doideswitch'
+                params:
+                    reverse: true
+            jumper2Mirror:
+                type: jumper
+                anchor:
+                    ref:
+                        - mirror_matrix_index_bottom
+                    shift:
+                        - -3
+                        - -15
+                    rotate: 90
+                nets:
+                    from: P6
+                    to: '=doideswitchmirr'
+                params:
+                    reverse: true
+            diode:
+                type: diode
+                anchor:
+                    ref:
+                        - matrix_index_bottom
+                    shift:
+                        - 11
+                        - -14
+                    rotate: 180
+                nets:
+                  from: '=doideswitch'
+                  to: P14
+                params:
+                  keycaps: true
+                  reverse: false
+            diodeMirror:
+                type: diode
+                anchor:
+                    ref:
+                        - mirror_matrix_index_bottom
+                    shift:
+                        - -11
+                        - -14
+                    rotate: 180
+                nets:
+                  from: '=doideswitchmirr'
+                  to: P1
+                params:
+                  keycaps: true
+                  reverse: false
