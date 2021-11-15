@@ -10,7 +10,7 @@
 
 ![ADuck With King Arthur SilkPrint](/KingArthurSilkPrint/ADucKingArthur.jpg)
 
-## If you like this make sure to check out Tapi's crazy boards, and particularly the A.Dux on which the ADuck is baased:
+## If you like this make sure to check out Tapi's crazy boards, and particularly the A.Dux on which the ADuck is based:
 https://github.com/tapioki/cephalopoda/tree/main/Architeuthis%20dux
 
 ![ADuck vs A.Dux](/ADuck%20vs%20ADux.jpeg)
