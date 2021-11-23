@@ -12,7 +12,8 @@
 
 ## If you like this make sure to check out Tapi's crazy boards, and particularly the A.Dux on which the ADuck is based:
 https://github.com/tapioki/cephalopoda/tree/main/Architeuthis%20dux
-
+A Duck (Left) vs the A.Dux (Right)
+Notice the pinkey stagger, and TRRS jack position:
 ![ADuck vs A.Dux](/ADuck%20vs%20ADux.jpeg)
 
 
