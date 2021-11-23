@@ -2,11 +2,11 @@
 ![ADuck Built](/ADuck%20%40%20slowne%20-%20Imgur.jpg)
 
 ## ADuck is a split, reversible, keyboard PCB based on the A.Dux by Tapi,
-### NS is the NonSplit version (that requires diodes)
+## NS is the NonSplit version (that requires diodes)
 
-![ADuck NS PCB](/NS/ADuck%20NS%20LE.png)
+![ADuck NS PCB](/NS/20211121_085531.jpg)
 
-### KingArthur is the exact same split, but with different silk print
+## KingArthur is the exact same split, but with different silk print
 
 ![ADuck With King Arthur SilkPrint](/KingArthurSilkPrint/ADucKingArthur.jpg)
 
